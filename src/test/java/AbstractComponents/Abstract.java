@@ -22,7 +22,7 @@ public class Abstract {
     @FindBy(css = "button[routerlink='/dashboard/cart']")
     WebElement cart;
 
-    public void waitForElementTovisible(By element) {
+    public void waitForElementByvisible(By element) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.visibilityOfElementLocated(element));
     }
@@ -30,6 +30,11 @@ public class Abstract {
     public void waitForElementToInvisible(By element) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.invisibilityOfElementLocated(element));
+    }
+
+    public void waitForElementToDisappear(WebElement element){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.invisibilityOf(element));
     }
 
     public static void ClickByJs(WebElement elementToClickByjs, WebDriver driver) {

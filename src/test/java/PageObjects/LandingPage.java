@@ -24,12 +24,12 @@ public class LandingPage extends Abstract {
     WebElement submit;
 
 
-    public MyCart LoginToApplication(String username, String Password){
+    public ProductCatalogue LoginToApplication(String username, String Password){
         userID.sendKeys(username);
         pass.sendKeys(Password);
         submit.click();
-        MyCart mk = new MyCart(driver);
-        return mk;
+        ProductCatalogue pk = new ProductCatalogue(driver);
+        return pk;
     }
 
 }

@@ -23,6 +23,9 @@ public class LandingPage extends Abstract {
     @FindBy(id = "login" )
     WebElement submit;
 
+    @FindBy(css="[aria-label='Incorrect email or password.']")
+    WebElement LoginError;
+
 
     public ProductCatalogue LoginToApplication(String username, String Password){
         userID.sendKeys(username);
@@ -30,6 +33,11 @@ public class LandingPage extends Abstract {
         submit.click();
         ProductCatalogue pk = new ProductCatalogue(driver);
         return pk;
+    }
+
+    public String LoginErrorValidation(){
+        String erormessage =LoginError.getText();
+        return erormessage;
     }
 
 }

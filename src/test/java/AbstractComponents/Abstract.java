@@ -1,5 +1,6 @@
 package AbstractComponents;
 
+import PageObjects.MyCart;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -46,7 +47,9 @@ public class Abstract {
         driver.get("https://rahulshettyacademy.com/client");
     }
 
-    public void CartClick() {
+    public MyCart CartClick() {
         cart.click();
+        MyCart mk = new MyCart(driver);
+        return mk;
     }
 }

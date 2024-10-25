@@ -31,17 +31,17 @@ public class ProductCatalogue extends Abstract {
     By toaster = By.cssSelector("#toast-container");
 
     public List<WebElement> listOfallElements() {
-        waitForElementToInvisible(product);
+        waitForElementByvisible(product);
         return products;
     }
 
-    public WebElement productAddtoCart(String nameOfText) {
+    public WebElement getProductByname(String nameOfText) {
         WebElement prod = products.stream().filter(product -> product.findElement(By.cssSelector("b")).getText().equals(nameOfText)).findFirst().orElse(null);
         return prod;
     }
 
     public void addproductTocart(String nameofText) {
-        WebElement prod = productAddtoCart(nameofText);
+        WebElement prod = getProductByname(nameofText);
         prod.findElement(addtocart).click();
         waitForElementByvisible(toaster);
         waitForElementToDisappear(spinner);

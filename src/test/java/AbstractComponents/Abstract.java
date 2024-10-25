@@ -38,7 +38,7 @@ public class Abstract {
         wait.until(ExpectedConditions.invisibilityOf(element));
     }
 
-    public static void ClickByJs(WebElement elementToClickByjs, WebDriver driver) {
+    public void ClickByJs(WebElement elementToClickByjs, WebDriver driver) {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].click();", elementToClickByjs);
     }
